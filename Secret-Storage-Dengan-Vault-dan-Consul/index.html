@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>secret storage dengan vault dan consul | Anggi Riyandi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  
+  <meta name="description" content="Artikel ini akan membahas tentang proses management secret storege dengan menggunakan vault dan consul . Instalasi consul Download consul versi terbaru disini download consul. Extract di suatu folder,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Secret Storage Dengan Vault dan Consul">
+<meta property="og:url" content="http://yoursite.com/Secret-Storage-Dengan-Vault-dan-Consul/index.html">
+<meta property="og:site_name" content="Anggi Riyandi">
+<meta property="og:description" content="Artikel ini akan membahas tentang proses management secret storege dengan menggunakan vault dan consul . Instalasi consul Download consul versi terbaru disini download consul. Extract di suatu folder,">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2017-09-17T12:40:11.692Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Secret Storage Dengan Vault dan Consul">
+<meta name="twitter:description" content="Artikel ini akan membahas tentang proses management secret storege dengan menggunakan vault dan consul . Instalasi consul Download consul versi terbaru disini download consul. Extract di suatu folder,">
+  
+    <link rel="alternate" href="/atom.xml" title="Anggi Riyandi" type="application/atom+xml">
+  
+  <link rel="icon" href="/css/images/favicon.ico">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+    
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Yanone+Kaffeesatz%3A200%2C300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+  <link rel="stylesheet" href="/css/hiero.css" >
+  <link rel="stylesheet" href="/css/glyphs.css" >
+  
+
+</head>
+
+<script>
+var themeMenus = {};
+
+  themeMenus["/"] = "Home"; 
+
+  themeMenus["/archives"] = "Archives"; 
+
+  themeMenus["/about"] = "About"; 
+
+</script>
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  <header id="allheader" class="site-header" role="banner">
+  <div class="clearfix container">
+      <div class="site-branding">
+
+          <h1 class="site-title">
+            
+              <a href="/" rel="home" >
+                <img style="margin-bottom: 10px;"  width="90px" height="90px" alt="Hike News" src=" /css/images/logo1.png">
+              </a>
+            
+          </h1>
+
+          
+            <div class="site-description">Anggi Riyandi&#39;s Blog</div>
+          
+            
+          <nav id="main-navigation" class="main-navigation" role="navigation">
+            <a class="nav-open">Menu</a>
+            <a class="nav-close">Close</a>
+            <div class="clearfix sf-menu">
+
+              <ul id="main-nav" class="nmenu sf-js-enabled">
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/">Home</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/archives">Archives</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/about">About</a> </li>
+                    
+              </ul>
+            </div>
+          </nav>
+
+
+      </div>
+  </div>
+</header>
+
+
+
+
+  <div id="container">
+    <div id="wrap">
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-Secret-Storage-Dengan-Vault-dan-Consul" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      Secret Storage Dengan Vault dan Consul
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	Posted on <a href="/Secret-Storage-Dengan-Vault-dan-Consul/" class="article-date">
+	  <time datetime="2017-09-14T16:59:42.000Z" itemprop="datePublished">September 14, 2017</time>
+	</a>
+
+      
+	<span id="busuanzi_container_page_pv">
+	 <span id="busuanzi_value_page_pv"></span>
+	</span>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Artikel ini akan membahas tentang proses management secret storege dengan menggunakan vault dan consul .</p>
+<h2 id="Instalasi-consul"><a href="#Instalasi-consul" class="headerlink" title="Instalasi consul"></a>Instalasi consul</h2><p> Download consul versi terbaru disini <a href="https://www.consul.io/downloads.html" target="_blank" rel="external">download consul</a>. Extract di suatu folder, contoh : /opt/consul_app setelah itu kita set environment variable untuk consul.</p>
+<pre><code>CONSUL_HOME=/opt/consul_app
+export CONSUL_HOME
+export PATH=$PATH:$CONSUL_HOME
+</code></pre><p>Kemudian cek apakah variable CONSUL_HOME sudah dikenali sistem</p>
+<pre><code>echo $CONSUL_HOME
+</code></pre><p>Selanjutnya cek apakah consul sudah terinstal dan di kenali oleh system dengan cara sebagai berikut :</p>
+<pre><code>consul -version
+</code></pre><a id="more"></a>
+<h2 id="Konfigurasi-dan-menjadikan-consul-sebagai-service"><a href="#Konfigurasi-dan-menjadikan-consul-sebagai-service" class="headerlink" title="Konfigurasi dan menjadikan consul sebagai service"></a>Konfigurasi dan menjadikan consul sebagai service</h2><p>Buat folder dengan nama ‘data’ di /opt/consul_app kemudian, buat file consule.service di /etc/systemd/system</p>
+ <figure class="highlight ini"><table><tr><td class="code"><pre><div class="line"><span class="section">[Unit]</span></div><div class="line"><span class="attr">Description</span>=consul agent</div><div class="line"><span class="attr">Requires</span>=network-<span class="literal">on</span>line.target</div><div class="line"><span class="attr">After</span>=network-<span class="literal">on</span>line.target</div><div class="line"></div><div class="line"><span class="section">[Service]</span></div><div class="line"><span class="attr">Environment</span>=GOMAXPROCS=<span class="number">2</span></div><div class="line"><span class="attr">Restart</span>=<span class="literal">on</span>-failure</div><div class="line"><span class="attr">ExecStart</span>=/opt/consul_app/consul agent <span class="variable">$OPTIONS</span> -server -bootstrap-expect <span class="number">1</span> -data-dir /opt/consul_app/data -bind <span class="number">127.0</span>.<span class="number">0.1</span></div><div class="line"><span class="attr">ExecReload</span>=/bin/kill -HUP <span class="variable">$MAINPID</span></div><div class="line"><span class="attr">KillSignal</span>=SIGINT</div><div class="line"></div><div class="line"><span class="section">[Install]</span></div><div class="line"><span class="attr">WantedBy</span>=multi-user.target</div></pre></td></tr></table></figure>
+<p>parameter ‘-data-dir /opt/consul_app/data’ artinya file penyimpanan untuk consul akan disimpan di folder -data-dir /opt/consul_app/data.<br>Selanjutnya cek apakah consul sudah dikenali sistem sebagai service</p>
+<pre><code>service consul status
+</code></pre><p>untuk menjalankan consul lakukan perintah berikut</p>
+<pre><code>service consul start
+</code></pre><h2 id="Instalasi-Vault"><a href="#Instalasi-Vault" class="headerlink" title="Instalasi Vault"></a>Instalasi Vault</h2><p>Download vault versi terbaru disini <a href="https://www.vaultproject.io/downloads.html" target="_blank" rel="external">download consul</a>. Extract di suatu folder, contoh : /opt/vault_app setelah itu kita set environment variable untuk vault.</p>
+<pre><code>VAULT_HOME=/opt/vault_app
+VAULT_ADDR=&apos;http://127.0.0.1:8200&apos;
+export VAULT_HOME
+export VAULT_ADDR
+export PATH=$PATH:$VAULT_HOME
+</code></pre><p>Kemudian cek apakah variable CONSUL_HOME sudah dikenali sistem</p>
+<pre><code>echo $VAULT_HOME
+</code></pre><p>Selanjutnya cek apakah consul sudah terinstal dan di kenali oleh system dengan cara sebagai berikut :</p>
+<pre><code>vault -version
+</code></pre><h2 id="Konfigurasi-dan-menjadikan-vault-sebagai-service"><a href="#Konfigurasi-dan-menjadikan-vault-sebagai-service" class="headerlink" title="Konfigurasi dan menjadikan vault sebagai service"></a>Konfigurasi dan menjadikan vault sebagai service</h2><p>Selanjutnya kita akan membuat file konfigurasi untuk vault, dan mengarahkan storage vault ke dalam consul.<br>Buat file config.hcl di /opt/vault_app</p>
+<pre><code>storage &quot;consul&quot; {
+   address = &quot;127.0.0.1:8500&quot;
+   path = &quot;vault&quot;
+}    
+
+listener &quot;tcp&quot; {
+  address = &quot;127.0.0.1:8200&quot;
+  tls_disable = 1
+}
+</code></pre><p>kemudian jadikan vault sebagai service di sistem, buat file vault.service di /etc/systemd/system</p>
+<figure class="highlight routeros"><table><tr><td class="code"><pre><div class="line">[Unit]</div><div class="line"><span class="attribute">Description</span>=vault server</div><div class="line"><span class="attribute">Requires</span>=network-online.target</div><div class="line"><span class="attribute">After</span>=network-online.target consul.service</div><div class="line"></div><div class="line">[Service]</div><div class="line"><span class="attribute">Restart</span>=on-failure</div><div class="line"><span class="attribute">ExecStart</span>=/opt/vault_app/vault<span class="built_in"> server </span><span class="variable">$OPTIONS</span> <span class="attribute">-config</span>=/opt/vault_app/config.hcl</div><div class="line"></div><div class="line">[Install]</div><div class="line"><span class="attribute">WantedBy</span>=multi-user.target</div></pre></td></tr></table></figure>
+<p>Kemudian cek apakah vault sudah dikenali sistem sebagai service</p>
+<pre><code>service vault status
+</code></pre><p>Untuk menjalankan service vault jalankan perintah berikut</p>
+<pre><code>service vault start
+</code></pre><p>Setelah vault dan consul berhasil terinstall di sistem selanjutnya lakukan langkah-langkah berikut untuk memulai bekerja dengan vault</p>
+<h3 id="Initializing-Vault"><a href="#Initializing-Vault" class="headerlink" title="Initializing Vault"></a>Initializing Vault</h3><p>langkah pertama yang harus dilakukan setelah instalasi vault adalah inisialisasi vault tersebut, proses ini cukup dilakukan sekali untuk mendapatkan token root token dan unseal key. </p>
+<pre><code>vault init
+</code></pre><p>jika berhasil maka akan muncul output seperti berikut</p>
+<figure class="highlight livecodeserver"><table><tr><td class="code"><pre><div class="line">Unseal Key <span class="number">1</span>: <span class="number">5</span>oQHfM6/wyRVCFQXH8KTS/<span class="number">1</span>Lt8lfPmUlgmiDc2jcQAAG</div><div class="line">Unseal Key <span class="number">2</span>: JbXBVq8mw9V1ivwhnN0DEHq0M8T04BNW7NSxjP1+M8V2</div><div class="line">Unseal Key <span class="number">3</span>: G4rG9acAo0nM4UZpl/etI6D/WbJIn56r4VGvWQ88PRWC</div><div class="line">Unseal Key <span class="number">4</span>: QHkkW7XuRPswsshJhMgYEflEY+<span class="number">1</span>tNN2hHAZlqxxfvbww</div><div class="line">Unseal Key <span class="number">5</span>: <span class="number">8</span>ZMul0z4oZ/TvNWSi4OyinWgudT2ipYDajeokox55A64</div><div class="line">Initial Root Token: <span class="number">10909686</span>-c8aa<span class="number">-4</span>de9<span class="number">-0</span>b91<span class="number">-9</span>dcc3832b558</div><div class="line"></div><div class="line">Vault initialized <span class="keyword">with</span> <span class="number">5</span> <span class="built_in">keys</span> <span class="keyword">and</span> <span class="keyword">a</span> key threshold <span class="keyword">of</span> <span class="number">3.</span> Please</div><div class="line">securely distribute <span class="keyword">the</span> above <span class="built_in">keys</span>. When <span class="keyword">the</span> vault is re-sealed,</div><div class="line">restarted, <span class="keyword">or</span> stopped, you must provide <span class="keyword">at</span> least <span class="number">3</span> <span class="keyword">of</span> these <span class="built_in">keys</span></div><div class="line"><span class="built_in">to</span> unseal <span class="keyword">it</span> again.</div><div class="line"></div><div class="line">Vault does <span class="keyword">not</span> store <span class="keyword">the</span> master key. Without <span class="keyword">at</span> least <span class="number">3</span> <span class="built_in">keys</span>,</div><div class="line">your vault will remain permanently sealed</div></pre></td></tr></table></figure>
+<p>Ada beberapa key yang berhasil digenerate olah vault</p>
+<p>Unseal key<br>Adalah key yang digunakan untuk proses unseal, kita tidak bisa melakukan apapun jika status vault masih dalam keadaan seal (protected), olehkarena itu kita membutuhkan key tersebut untuk membuat vault menjadi unseal dan siap digunakan. Dari keterangan diatas dapat dapat kita ketahui bahwa kita hanya cukup menggunakan 3 dari 5 unseal key untuk merubah status vault menjadi unseal. Jika kehilangan key tersebut maka vault tidak bisa dugunakan kembali, dan harus melakukan proses inisialisasi ulang , yang artinya data-data yang sebelumnya telah kita simpan akan hilang.</p>
+<p>Initial Root Token<br>Adalah key yang digunakan untuk proses autentikasi sebagai root.</p>
+<h3 id="Unseal-vault"><a href="#Unseal-vault" class="headerlink" title="Unseal vault"></a>Unseal vault</h3><p>Untuk melakukan proses unseal cukup dengan perintah </p>
+<pre><code>vault unseal
+</code></pre><p>kemudian masukan unseal key yang telah kita dapatkan sebelumnya, jika berhasil maka akan muncul output seperti berikut</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><div class="line"><span class="string">Key</span> <span class="string">(will</span> <span class="string">be</span> <span class="string">hidden):</span></div><div class="line"><span class="attr">Sealed:</span> <span class="literal">true</span></div><div class="line"><span class="string">Key</span> <span class="attr">Shares:</span> <span class="number">5</span></div><div class="line"><span class="string">Key</span> <span class="attr">Threshold:</span> <span class="number">3</span></div><div class="line"><span class="string">Unseal</span> <span class="attr">Progress:</span> <span class="number">1</span></div><div class="line"><span class="string">Unseal</span> <span class="attr">Nonce:</span> <span class="number">7</span><span class="string">bb63398-2aef-233d-585a-7ebee8d716f1</span></div></pre></td></tr></table></figure>
+<p>lakukan proses tersebut sebanya 3 kali, jalankan perintah berikut untuk melihat status vault</p>
+<pre><code>vault status
+</code></pre><p>kemudian akan muncul seperti dibawh ini </p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><div class="line"><span class="attr">Sealed:</span> <span class="literal">false</span></div><div class="line"><span class="string">Key</span> <span class="attr">Shares:</span> <span class="number">5</span></div><div class="line"><span class="string">Key</span> <span class="attr">Threshold:</span> <span class="number">3</span></div><div class="line"><span class="string">Unseal</span> <span class="attr">Progress:</span> <span class="number">0</span></div><div class="line"><span class="string">Unseal</span> <span class="attr">Nonce:</span> </div><div class="line"><span class="attr">Version:</span> <span class="number">0.7</span><span class="number">.3</span></div><div class="line"><span class="string">Cluster</span> <span class="attr">Name:</span> <span class="string">vault-cluster-dfd0b91e</span></div><div class="line"><span class="string">Cluster</span> <span class="attr">ID:</span> <span class="string">a11599d2-0887-b184-0c13-a3f7f56c2e88</span></div></pre></td></tr></table></figure>
+<p>jika kita berhasil melakukan proses unseal sebanyak 3 kali , status vault akan berubah manjadi status seal akan berubah menjadi false</p>
+<h3 id="Autentikasi-login"><a href="#Autentikasi-login" class="headerlink" title="Autentikasi / login"></a>Autentikasi / login</h3><p>Untuk melakukan autentikasi sebagai root , lakukan perintah berikut</p>
+<pre><code>vault auth 
+</code></pre><p>masukan root token yang telah didapat sebelumnya, jika berhasil akan muncul seperti dibawah ini</p>
+<pre><code>Successfully authenticated! You are now logged in.
+token: cad1c4ce-43ef-4218-1ff6-e2480cdb19ce
+token_duration: 0
+token_policies: [root]
+</code></pre><h3 id="Menulis-dan-membaca-nilai-pada-vault"><a href="#Menulis-dan-membaca-nilai-pada-vault" class="headerlink" title="Menulis dan membaca nilai pada vault"></a>Menulis dan membaca nilai pada vault</h3><p>Untuk menulis secret didalam vault cukup lakukan perintah berikut</p>
+<p>vault write secret/belajar password=123</p>
+<p>jika berhasil akan keluar output seperti berikut</p>
+<pre><code>Success! Data written to: secret/belajar
+</code></pre><p>printah diatas artinya kita menulis sebuah secret dengan key = password dan value = 123 didalam prefix secret/, secret yang tersimpan didalam vault bersifat ‘key value’ .<br>Untuk membaca secret yang telah kita simpan cukup lakukan perintah </p>
+<pre><code>vault read secret/belajar
+</code></pre><p>jika berhasil akan muncul seperti dibawah ini</p>
+<pre><code>Key                 Value
+---                 -----
+refresh_interval    768h0m0s
+password            123
+</code></pre><p>kita juga bisa menyimpan beberapa key didalam vault , contoh </p>
+<pre><code>vault write secret/belajar password=123 secret=456
+
+vault read secret/belajar
+</code></pre><p>jika berhasil akan muncul seperti dibawah ini</p>
+<pre><code>Key                 Value
+---                 -----
+refresh_interval    768h0m0s
+password            123
+secret              456
+</code></pre><p>Untuk menyimpan beberapa value disarankan menggunakan format json, vault sendiri sudah mendukung penyimpanan secret dengan menggunakan format json. Sebagai contoh kita akan membuat file json dengan nama secret.json di folder /tmp yang berisi</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">"data"</span>: &#123;</div><div class="line">     <span class="attr">"excited"</span>: <span class="string">"yes"</span>,</div><div class="line">     <span class="attr">"value"</span>: <span class="string">"world"</span></div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div></pre></td></tr></table></figure>
+<pre><code>vault write secret/belajar @/tmp/secret.json
+</code></pre><p>jika kita membaca secret tersebut dengan perintah </p>
+<pre><code>vault read secret/belajar
+</code></pre><p>hasilnya akan seperti ini</p>
+<pre><code>Key                 Value
+---                 -----
+refresh_interval    768h0m0s
+data                map[excited:yes value:world]
+</code></pre><h3 id="Secret-Backend"><a href="#Secret-Backend" class="headerlink" title="Secret Backend"></a>Secret Backend</h3><p>Sebelumnya kita sudah mencoba menulis dan membaca nilai secret pada vault didalam prefix secret/. Prefix tersebut mengarah kepada backend yang akan kita gunakan, secara default prefix secret/ mengarah kepada backend yang dinamalan generic, generic backend menulis dan membaca raw data ke dalam backend storage. Selain generic backend ada beberapa backend yang di sediakan oleh vault, lebih lengkapnya ada <a href="https://www.vaultproject.io/docs/index.html" target="_blank" rel="external">disini</a></p>
+<p>Selain prefix secret/ kita juga bisa menambah prefix sendiri yang mengarah kepada secret backend yang kita inginkan. Contoh</p>
+<pre><code>vault mount -path=rahasia generic
+</code></pre><p>jika berhasil akan muncul keterangan berikut</p>
+<pre><code>Successfully mounted &apos;generic&apos; at &apos;rahasia&apos;!
+</code></pre><p>Selanjutnya untuk melihat prefix apa saja yang ada dan mengarah ke backend mana bisa melakukan perintah berikut</p>
+<pre><code>vault mounts
+</code></pre><p>jika berhasil akan muncul keterangan berikut</p>
+<figure class="highlight routeros"><table><tr><td class="code"><pre><div class="line">Path       <span class="built_in"> Type </span>     <span class="built_in"> Default </span>TTL  Max TTL  Force <span class="literal">No</span> Cache  Replication Behavior  Description</div><div class="line">cubbyhole/  cubbyhole  n/a          n/a      <span class="literal">false</span>           local                 per-token private<span class="built_in"> secret </span>storage</div><div class="line">rahasia/    generic   <span class="built_in"> system </span>     <span class="built_in"> system </span>  <span class="literal">false</span>           replicated            </div><div class="line">secret/     generic   <span class="built_in"> system </span>     <span class="built_in"> system </span>  <span class="literal">false</span>           replicated            generic<span class="built_in"> secret </span>storage</div><div class="line">sys/       <span class="built_in"> system </span>    n/a          n/a      <span class="literal">false</span>           replicated           <span class="built_in"> system </span>endpoints used <span class="keyword">for</span> control,<span class="built_in"> policy </span><span class="keyword">and</span> debugging</div></pre></td></tr></table></figure>
+<p>Selain itu kita bisa menghapus path yang telah kita buat sebelumnya, yang berarti data-data yang telah kita simpan di path tersebut akan ikut terhapus, berikut adalah perintah untuk menghapus / unmount path yang telah kita buat sebelumnya</p>
+<pre><code>vault unmount rahasia
+</code></pre><h3 id="Vault-Policy"><a href="#Vault-Policy" class="headerlink" title="Vault Policy"></a>Vault Policy</h3><p>Vault policy adalah sebuah otorisasi didalam vault yang membatasi akses dari masing-masing user / akses token. Policy tersebut disimpan dalam file konfigurasi .hcl (HashiCorp Configuration Language) untuk lebih lengkapnya bisa dibaca <a href="https://www.vaultproject.io/docs/concepts/policies.html" target="_blank" rel="external">disini</a>. Untuk membuat policy, langkah pertama yang kita lakukan adalah membuat buat file misalnya configPolicy.hcl yang isinya sebagai berikut</p>
+<figure class="highlight nginx"><table><tr><td class="code"><pre><div class="line"></div><div class="line"><span class="attribute">path</span> <span class="string">"secret/*"</span> &#123;</div><div class="line">  <span class="attribute">capabilities</span> = [<span class="string">"create"</span>, <span class="string">"read"</span>, <span class="string">"update"</span>, <span class="string">"delete"</span>, <span class="string">"list"</span>]</div><div class="line">&#125;</div><div class="line"></div><div class="line">path <span class="string">"secret/data"</span> &#123;</div><div class="line">  <span class="attribute">capabilities</span> = [<span class="string">"read"</span>]</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">path <span class="string">"auth/token/lookup-self"</span> &#123;</div><div class="line">  <span class="attribute">capabilities</span> = [<span class="string">"read"</span>]</div><div class="line">&#125;</div><div class="line"></div></pre></td></tr></table></figure>
+<p>Selanjutnya kita simpan policy tersebut kedalam vault dengan perintah berikut</p>
+<pre><code>vault policy-write agent-policy configPolicy.hcl
+</code></pre><p>Perintah diatas artinya kita membuat policy dengan nama agent-policy yang aturannya diambil dari file configPolicy.hcl. Selanjutnya kita akan mambuat akses token dengan policy agent-policy. </p>
+<pre><code>vault token-create -policy=&quot;agent-policy&quot;
+</code></pre><p>jika berhasil akan keluar keterangan sebagai berikut</p>
+<figure class="highlight lsl"><table><tr><td class="code"><pre><div class="line">Key            	Value</div><div class="line">---            	-----</div><div class="line">token          	d1ccfad6<span class="number">-375</span>a-f3ef<span class="number">-8</span>ca0-a5a633495832</div><div class="line">token_accessor 	<span class="number">7</span>efc53ec<span class="number">-6330</span>-efb8<span class="number">-8</span>f46-a83c7884bae4</div><div class="line">token_duration 	<span class="number">768</span>h0m0s</div><div class="line">token_renewable	true</div><div class="line">token_policies 	[agent-policy <span class="section">default</span>]</div></pre></td></tr></table></figure>
+<p>Kemudian kita login menggunakan akses token tersebut untuk memastikan akses token tersebut sudah benar-benar terikat dengan policy ‘agent-policy’</p>
+<pre><code>vault auth d1ccfad6-375a-f3ef-8ca0-a5a633495832
+</code></pre><p>tulis sebuah nilai didalam path secret/data</p>
+<pre><code>vault write secret/data secret=123
+</code></pre><p>karena policy ‘agent-policy’ tidak membolehkan untuk menulis di path secret/data maka akan muncul keterangan berikut</p>
+<pre><code>Error writing data to secret/data: Error making API request.
+
+URL: PUT http://127.0.0.1:8200/v1/secret/data
+Code: 403. Errors:
+
+* permission denied
+</code></pre>
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+      
+      
+
+      
+        
+	<section id="comments" class="comment">
+	  <div id="disqus_thread">
+	  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+	  </div>
+	</section>
+
+	<script type="text/javascript">
+	var disqus_shortname = 'anggiriyandi';
+	(function(){
+	  var dsq = document.createElement('script');
+	  dsq.type = 'text/javascript';
+	  dsq.async = true;
+	  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	}());
+	(function(){
+	  var dsq = document.createElement('script');
+	  dsq.type = 'text/javascript';
+	  dsq.async = true;
+	  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+	  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	}());
+	</script>
+
+
+      
+    </footer>
+  </div>
+  
+    
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+      <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Instalasi-consul"><span class="nav-number">1.</span> <span class="nav-text">Instalasi consul</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Konfigurasi-dan-menjadikan-consul-sebagai-service"><span class="nav-number">2.</span> <span class="nav-text">Konfigurasi dan menjadikan consul sebagai service</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Instalasi-Vault"><span class="nav-number">3.</span> <span class="nav-text">Instalasi Vault</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Konfigurasi-dan-menjadikan-vault-sebagai-service"><span class="nav-number">4.</span> <span class="nav-text">Konfigurasi dan menjadikan vault sebagai service</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Initializing-Vault"><span class="nav-number">4.1.</span> <span class="nav-text">Initializing Vault</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Unseal-vault"><span class="nav-number">4.2.</span> <span class="nav-text">Unseal vault</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Autentikasi-login"><span class="nav-number">4.3.</span> <span class="nav-text">Autentikasi / login</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Menulis-dan-membaca-nilai-pada-vault"><span class="nav-number">4.4.</span> <span class="nav-text">Menulis dan membaca nilai pada vault</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Secret-Backend"><span class="nav-number">4.5.</span> <span class="nav-text">Secret Backend</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vault-Policy"><span class="nav-number">4.6.</span> <span class="nav-text">Vault Policy</span></a></li></ol></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      <footer id="footer" class="site-footer">
+  
+
+  <div class="clearfix container">
+      <div class="site-info">
+	      &copy; 2017 Anggi Riyandi All Rights Reserved.
+          
+            <span id="busuanzi_container_site_uv">
+              <span id="busuanzi_value_site_uv"></span>  
+              <span id="busuanzi_value_site_pv"></span>
+            </span>
+          
+      </div>
+      <div class="site-credit">
+        Theme by <a href="https://github.com/iTimeTraveler/hexo-theme-hiero" target="_blank">hiero</a>
+      </div>
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var contentdiv = document.getElementById("content");
+
+    contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+<script src="/js/bootstrap.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js" async=""></script>
+</body>
+</html>
