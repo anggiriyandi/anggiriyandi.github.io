@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>angular 4 - persiapan coding | Anggi Riyandi</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  
+  <meta name="description" content="Kali ini saya akan membahas mengenai seri angular 4 dari mulai setup project angular 4 sampai dengan implementasi dan integrasi dengan springboot, berikut adalah list yang akan kita bahas dalam seri a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Angular 4 - Persiapan Coding">
+<meta property="og:url" content="http://yoursite.com/angular-4-Persiapan-Coding/index.html">
+<meta property="og:site_name" content="Anggi Riyandi">
+<meta property="og:description" content="Kali ini saya akan membahas mengenai seri angular 4 dari mulai setup project angular 4 sampai dengan implementasi dan integrasi dengan springboot, berikut adalah list yang akan kita bahas dalam seri a">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/angular-4-Persiapan-Coding/1.png">
+<meta property="og:image" content="http://yoursite.com/angular-4-Persiapan-Coding/2.png">
+<meta property="og:image" content="http://yoursite.com/angular-4-Persiapan-Coding/3.png">
+<meta property="og:image" content="http://yoursite.com/angular-4-Persiapan-Coding/4.png">
+<meta property="og:image" content="http://yoursite.com/angular-4-Persiapan-Coding/5.png">
+<meta property="og:updated_time" content="2017-09-18T15:34:34.248Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Angular 4 - Persiapan Coding">
+<meta name="twitter:description" content="Kali ini saya akan membahas mengenai seri angular 4 dari mulai setup project angular 4 sampai dengan implementasi dan integrasi dengan springboot, berikut adalah list yang akan kita bahas dalam seri a">
+<meta name="twitter:image" content="http://yoursite.com/angular-4-Persiapan-Coding/1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Anggi Riyandi" type="application/atom+xml">
+  
+  <link rel="icon" href="/css/images/favicon.ico">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+    
+  <link rel="stylesheet" id="athemes-headings-fonts-css" href="//fonts.googleapis.com/css?family=Yanone+Kaffeesatz%3A200%2C300%2C400%2C700&amp;ver=4.6.1" type="text/css" media="all">
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+  <link rel="stylesheet" href="/css/hiero.css" >
+  <link rel="stylesheet" href="/css/glyphs.css" >
+  
+
+</head>
+
+<script>
+var themeMenus = {};
+
+  themeMenus["/"] = "Home"; 
+
+  themeMenus["/archives"] = "Archives"; 
+
+  themeMenus["/about"] = "About"; 
+
+</script>
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  <header id="allheader" class="site-header" role="banner">
+  <div class="clearfix container">
+      <div class="site-branding">
+
+          <h1 class="site-title">
+            
+              <a href="/" rel="home" >
+                <img style="margin-bottom: 10px;"  width="90px" height="90px" alt="Hike News" src=" /css/images/logo1.png">
+              </a>
+            
+          </h1>
+
+          
+            <div class="site-description">Anggi Riyandi&#39;s Blog</div>
+          
+            
+          <nav id="main-navigation" class="main-navigation" role="navigation">
+            <a class="nav-open">Menu</a>
+            <a class="nav-close">Close</a>
+            <div class="clearfix sf-menu">
+
+              <ul id="main-nav" class="nmenu sf-js-enabled">
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/">Home</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/archives">Archives</a> </li>
+                    
+                      <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663"> <a class="" href="/about">About</a> </li>
+                    
+              </ul>
+            </div>
+          </nav>
+
+
+      </div>
+  </div>
+</header>
+
+
+
+
+  <div id="container">
+    <div id="wrap">
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-angular-4-Persiapan-Coding" style="width: 66%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="clearfix post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 category-uncategorized tag-codex tag-edge-case tag-featured-image tag-image tag-template">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      Angular 4 - Persiapan Coding
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	Posted on <a href="/angular-4-Persiapan-Coding/" class="article-date">
+	  <time datetime="2017-09-18T14:50:34.000Z" itemprop="datePublished">September 18, 2017</time>
+	</a>
+
+      
+	<span id="busuanzi_container_page_pv">
+	 <span id="busuanzi_value_page_pv"></span>
+	</span>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Kali ini saya akan membahas mengenai seri angular 4 dari mulai setup project angular 4 sampai dengan implementasi dan integrasi dengan springboot, berikut adalah list yang akan kita bahas dalam seri angular 4 ini</p>
+<p>1.<a href="/angular-4-Persiapan-Coding/">Persiapan Coding Angular 4</a><br>2.<a href="/angular-4-Components-dan-Data-Binding/">Components Dan Data binding</a><br>3.Directive<br>4.Service dan Dependency Injection<br>5.Routing<br>6.Observables<br>7.Form<br>8.Http Request</p>
+<a id="more"></a>
+<h1 id="Persiapan-Coding-Angular-4"><a href="#Persiapan-Coding-Angular-4" class="headerlink" title="Persiapan Coding Angular 4"></a>Persiapan Coding Angular 4</h1><p>Disini kita akan membahas starting project angular 4 dengan menggunakan Angular CLI, apa itu angular CLI ? , lebih lengkapnya bisa dibaca <a href="https://cli.angular.io/" target="_blank" rel="external">disini</a> sebelum menginstal angular cli , kita diharuskan untuk menginstall nodejs terlebih dahulu, gunakan versi nodejs yang paling baru yang bisa didapatkan <a href="https://nodejs.org/en/download/" target="_blank" rel="external">disini</a>. Untuk langkah-langkah installasi nodejs bisa dibaca <a href="https://nodejs.org/en/download/package-manager/" target="_blank" rel="external">disini</a>. Jika nodejs sudah terpasang selanjutnya kita menginstall angular cli, caranya sangat mudah cukup dengan menjalankan perintah berikut didalam terminal/consol </p>
+<pre><code>npm install -g @angular/cli
+</code></pre><p>Lakukan perintah berikut untuk memeriksa apakah angular cli sudah terpsang</p>
+<pre><code>ng --version
+</code></pre><p>Jika sukses maka akan muncul keterangan seperti ini</p>
+<p><img src="1.png" alt="angular cli version"></p>
+<p>Kemudian untuk membuat sebuah project angular dengan menggunakan angular cli, jalankan perintah berikut</p>
+<pre><code>ng new belajar-angular
+</code></pre><p>jika berhasil akan muncul seperti gambar dibawah ini</p>
+<p><img src="2.png" alt="angular cli generate project"></p>
+<p>Untuk menjalankan cukup dengan masuk kedalam directory aplikasi, kemudian jalankan perintah berikut</p>
+<pre><code>ng serve
+</code></pre><p>jika berhasil maka akan muncul seperti ini</p>
+<p><img src="3.png" alt="angular cli run project"></p>
+<p>aplikasi tersebut akan berjalan di localhost dengan port 4200</p>
+<p><img src="4.png" alt="angular cli akses web"></p>
+<p>Struktur project yang dibuatkan olah angular cli adalah sebagai berikut</p>
+<p><img src="5.png" alt="angular cli struktur project"></p>
+<p>IDE yang saya gunakan diatas adala Visual Studio Code bisa anda untuh <a href="https://code.visualstudio.com/" target="_blank" rel="external">disini</a><br>Demikian cara untuk setup project angular, selanjutnya kita akan membahas tentang <a href="/angular-4-Components-dan-Data-Binding/">Components Dan Data binding</a>.</p>
+
+      
+    </div>
+    <footer class="entry-meta entry-footer">
+      
+      
+      
+
+      
+        
+	<section id="comments" class="comment">
+	  <div id="disqus_thread">
+	  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+	  </div>
+	</section>
+
+	<script type="text/javascript">
+	var disqus_shortname = 'anggiriyandi';
+	(function(){
+	  var dsq = document.createElement('script');
+	  dsq.type = 'text/javascript';
+	  dsq.async = true;
+	  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	}());
+	(function(){
+	  var dsq = document.createElement('script');
+	  dsq.type = 'text/javascript';
+	  dsq.async = true;
+	  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+	  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	}());
+	</script>
+
+
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/Secret-Storage-Dengan-Vault-dan-Consul/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Secret Storage Dengan Vault dan Consul</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+      <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Persiapan-Coding-Angular-4"><span class="nav-number">1.</span> <span class="nav-text">Persiapan Coding Angular 4</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      <footer id="footer" class="site-footer">
+  
+
+  <div class="clearfix container">
+      <div class="site-info">
+	      &copy; 2017 Anggi Riyandi All Rights Reserved.
+          
+            <span id="busuanzi_container_site_uv">
+              <span id="busuanzi_value_site_uv"></span>  
+              <span id="busuanzi_value_site_pv"></span>
+            </span>
+          
+      </div>
+      <div class="site-credit">
+        Theme by <a href="https://github.com/iTimeTraveler/hexo-theme-hiero" target="_blank">hiero</a>
+      </div>
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var contentdiv = document.getElementById("content");
+
+    contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("allheader").offsetHeight - document.getElementById("footer").offsetHeight + "px";
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/scripts.js"></script>
+<script src="/js/bootstrap.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js" async=""></script>
+</body>
+</html>
